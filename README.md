@@ -43,12 +43,25 @@ bash
 
 The proxy starts on localhost:8000.
 
-2. Test Requests: Assuming upstream services are running:
+2. Optionally start the example servers:
+
+    ```go
+
+    go run example/server.go 8002
+    go run example/server.go 8003
+    go
+    ```
+
+Two dummy servers will be stated on ports 8002 and 8003. Try a ping-pong by hitting `/ping`.
+
+3. Test Requests: Assuming upstream services are running:
+
     ```bash
     curl http://localhost:8000/service1/ping
     curl http://localhost:8000/service2/data
     bash
     ```
+
     Requests to unknown prefixes (e.g., /service3) return a 404.
 
 ## Setup
